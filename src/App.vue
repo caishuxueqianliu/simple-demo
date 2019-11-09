@@ -57,11 +57,11 @@ export default{
 
 </script>
 
-
-<style>
+<style lang="scss" scoped type="">
 .mint-header{
-  background-color: black;
+
   z-index:999;
+    background-color: #333;
 }
 .v-enter {
   opacity: 0;

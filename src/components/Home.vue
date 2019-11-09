@@ -5,7 +5,7 @@
   <mt-swipe-item>2</mt-swipe-item>
   <mt-swipe-item>3</mt-swipe-item>
 </mt-swipe>
-111
+
     </div> 
 </template>
 
