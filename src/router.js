@@ -11,7 +11,7 @@ var router = new VueRouter({
   routes: [
          {path:'/',redirect:'/Home'},
      { path: '/Index', component: Index },
-        { path: '/Home', component: Home },
+        { path: '/Home', component: Home,name:'home' },
            { path: '/list', component: list },
               { path: '/my', component: my }
       
