@@ -1,6 +1,7 @@
 <template>
 <div>
-      home
+ 
+
     </div> 
 </template>
 
@@ -8,6 +9,9 @@
 
 
 export default {
+
+
+
 }
 </script>
 

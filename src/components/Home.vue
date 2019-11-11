@@ -1,5 +1,7 @@
 <template>
-<div>
+	<div>  
+<index3 :listinfo='listt'></index3>
+<div v-show='flag'>
  <input type="text" placeholder="input..." class='content' v-model='id'>
  <input type="text" placeholder="input..." class='content' v-model='editer'>
 
@@ -8,7 +10,7 @@
 <input type="text" placeholder="search..." class='search' v-model='keywords'>
  <button class='btn' @click='add()'>submit</button>
    <button class='search' @click='search()'>search</button>
-<ul v-for='item in search(keywords)' :key='item.id'> 
+<ul v-for='(item,i) in search(keywords)' :key='item.id'> 
 <li>{{item.id}}</li>	
 <li>{{item.editer}}</li>
 <li>{{item.content}}</li>
@@ -19,10 +21,11 @@
 
 </div>
 
-
+ </div>
 </template>
 
 <script>
+	import index3 from '../components/index3.vue'
 export default {
  	data(){
 	return{
@@ -32,7 +35,9 @@ export default {
         content:'',
         id:'',
         editer:'',
-        keywords:''
+        keywords:'',
+        flag:true,
+        listt:[]
 		}
 	
 	},
@@ -57,15 +62,17 @@ export default {
 
 
                 },
-                  rem(i){
+     rem(i){
 
             // this.$store.commit("clo",i);
-               
-                this.id=this.list[i].id
-               this.editer=this.list[i].editer
-               this.content = this.list[i].content
+              this.flag=!this.flag
+            
+              this.listt.push(this.list[i])
                
          }
+	},
+	components: {
+		index3
 	}
       }
 
