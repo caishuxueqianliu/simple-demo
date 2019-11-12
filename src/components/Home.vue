@@ -1,7 +1,11 @@
 <template>
 	<div>  
-<index3 :listinfo='listt'></index3>
-<div v-show='flag'>
+<index3 :listinfo='listt' v-on:childByValue="childByValue"></index3>
+
+父组件:
+    <span>{{name}}</span>
+<!-- <div v-show='flag'> -->
+	<div >
  <input type="text" placeholder="input..." class='content' v-model='id'>
  <input type="text" placeholder="input..." class='content' v-model='editer'>
 
@@ -17,7 +21,6 @@
 <button @click='del(i)'>delete</button>
 <button @click='rem(i)'>rem</button>
 </ul>
-
 
 </div>
 
@@ -37,7 +40,8 @@ export default {
         editer:'',
         keywords:'',
         flag:true,
-        listt:[]
+        listt:'',
+         name: '11'
 		}
 	
 	},
@@ -67,10 +71,15 @@ export default {
             // this.$store.commit("clo",i);
               this.flag=!this.flag
             
-              this.listt.push(this.list[i])
-               
-         }
-	},
+              // this.listt=JSON.stringify(this.list[i])
+              this.listt=this.list[i]
+                //  console.log(i)
+                // console.log(this.listt.id)
+         },
+         childByValue: function (childValue) {
+        // childValue就是子组件传过来的值
+        this.name = childValue
+	}},
 	components: {
 		index3
 	}
