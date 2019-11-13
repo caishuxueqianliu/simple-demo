@@ -19,6 +19,11 @@ Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
 
+import { PaletteButton } from 'mint-ui';
+Vue.component(PaletteButton.name, PaletteButton);
+
+import { Button } from 'mint-ui';
+Vue.component(Button.name, Button);
 // import { Search } from 'mint-ui';
 // Vue.component(Search.name, Search);
 

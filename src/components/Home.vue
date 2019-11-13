@@ -1,26 +1,53 @@
 <template>
 	<div>  
 <index3 :listinfo='listt' v-on:childByValue="childByValue"></index3>
-
+<!-- 
 父组件:
-    <span>{{name}}</span>
+    <span>{{name}}</span> -->
 <!-- <div v-show='flag'> -->
 	<div >
- <input type="text" placeholder="input..." class='content' v-model='id'>
+<!--  <input type="text" placeholder="input..." class='content' v-model='id'>
  <input type="text" placeholder="input..." class='content' v-model='editer'>
 
 <input type="text" placeholder="input..." class='content' v-model='content'>
 
-<input type="text" placeholder="search..." class='search' v-model='keywords'>
- <button class='btn' @click='add()'>submit</button>
-   <button class='search' @click='search()'>search</button>
-<ul v-for='(item,i) in search(keywords)' :key='item.id'> 
+<input type="text" placeholder="search..." class='search' v-model='keywords'> -->
+
+<div class="mui-card" > 
+    <div class="mui-card-header"><input type="text" placeholder="search..." class='search' v-model='keywords'></div>
+
+
+        <div class="mui-card-header"><input type="text" placeholder="input..." class='content' v-model='id'></div>
+        <div class="mui-card-content">
+          <div class="mui-card-content-inner">
+        <input type="text" placeholder="input..." class='content' v-model='content'>
+          </div>
+        </div>
+        <div class="mui-card-footer"> <input type="text" placeholder="input..." class='content' v-model='editer'></div>
+            <div class="mui-card-footer"><mt-button type="primary" size="small" @click='add()'>add</mt-button></div>
+      </div>
+
+
+
+
+<!--  <button class='btn' @click='add()'>submit</button>
+   <button class='search' @click='search()'>search</button> -->
+<!-- <ul v-for='(item,i) in search(keywords)' :key='item.id'> 
 <li>{{item.id}}</li>	
 <li>{{item.editer}}</li>
 <li>{{item.content}}</li>
-<button @click='del(i)'>delete</button>
-<button @click='rem(i)'>rem</button>
-</ul>
+</ul> -->
+<div class="mui-card"  v-for='(item,i) in search(keywords)' :key='item.id'> 
+        <div class="mui-card-header">{{item.id}}</div>
+        <div class="mui-card-content">
+          <div class="mui-card-content-inner">
+         {{item.content}}
+          </div>
+        </div>
+        <div class="mui-card-footer">{{item.editer}}</div>
+            <div class="mui-card-footer"><mt-button type="primary" size="small" @click='rem(i)'>查看</mt-button>
+<mt-button type="danger" size="small"  @click='del(i)'>删除</mt-button></div>
+      </div>
 
 </div>
 
@@ -90,6 +117,6 @@ export default {
 
 </script>
 
-<style lang="scss" scoped type="">
+<style>
 
 </style>
