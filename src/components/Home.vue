@@ -1,6 +1,6 @@
 <template>
 	<div>  
-<index3 :listinfo='listt' v-on:childByValue="childByValue"></index3>
+<index3  :listinfo='listt' v-on:childByValue="childByValue"></index3>
 <!-- 
 父组件:
     <span>{{name}}</span> -->
@@ -14,8 +14,8 @@
 <input type="text" placeholder="search..." class='search' v-model='keywords'> -->
 
 <div class="mui-card" > 
-    <div class="mui-card-header"><input type="text" placeholder="search..." class='search' v-model='keywords'></div>
-
+  <div class="mui-card-header"><input type="text" placeholder="search..." class='search' v-model='keywords'></div>
+<!-- <mt-button type="primary" size="small" @click='search() '>serach</mt-button> -->
 
         <div class="mui-card-header"><input type="text" placeholder="input..." class='content' v-model='id'></div>
         <div class="mui-card-content">
@@ -69,6 +69,7 @@ export default {
         flag:true,
         listt:'',
          name: '11'
+     
 		}
 	
 	},
@@ -102,6 +103,8 @@ export default {
               this.listt=this.list[i]
                 //  console.log(i)
                 // console.log(this.listt.id)
+
+          
          },
          childByValue: function (childValue) {
         // childValue就是子组件传过来的值

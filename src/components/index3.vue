@@ -57,6 +57,7 @@ export default {
     contentt :'',
     childValue: '我是子组件的数据'
 
+
  	}
  },
 methods:{
@@ -66,12 +67,14 @@ methods:{
  this.idd=this.listinfo.id;
  this.editerr=this.listinfo.editer;
  this.contentt=this.listinfo.content;
+
  },
  queren(){
 
    this.listinfo.id=this.idd
  this.listinfo.editer=this.editerr
  this.listinfo.content=this.contentt
+
 
  },
  childClick () {
