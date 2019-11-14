@@ -1,32 +1,67 @@
 <template>
   <div>
-	<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">login（登录）</h1>
-		</header>
-		<div class="mui-content">
-			<div class="mui-content-padded">
-				<h5>简单说明</h5>
-				<p>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们为 “登录模板” 制作了一独立的 “演示应用”，包括 “账号密码登录、第三方账号登录、账号注册、手势锁屏、分享” 等功能演示。
-				</p>
-				<h5>体验方式</h5>
-				<ol>
-					<li>在 HBuilder 中新建“移动App”工程，选择 “mui登录模板” ；</li>
-					<li>在 GitHub 上查看或下载 <a _src='https://github.com/dcloudio/mui/tree/master/examples/login'>登录模板源码</a> 。
-					</li>
-				</ol>
-				<h5>演示截图</h5>
-				<p style="text-align: center;">
-					<img src="" />
-				</p>
-			</div>
-		</div>
+
+  	<div class="mui-card" > 
+  <div class="mui-card-header"><input type="text" placeholder="search..." class='search' v-model='keywords'></div>
+</div>
+<div class="mui-card"  v-for='(item,i) in search(keywords)' :key='item.id'> 
+        <div class="mui-card-header">{{item.id}}</div>
+        <div class="mui-card-content">
+          <div class="mui-card-content-inner">
+         {{item.content}}
+          </div>
+        </div>
+        <div class="mui-card-footer">{{item.editer}}</div>
+            <div class="mui-card-footer"><mt-button type="primary" size="small" @click='rem(i)'>查看</mt-button>
+<mt-button type="danger" size="small"  @click='del(i)'>删除</mt-button></div>
+      </div>
+
+
   </div>
 </template>
 
 <script>
 export default {
+	data(){
+	return{
+        list:this.$store.car,     
+        content:'',
+        id:'',
+        editer:'',
+        keywords:'',
+      
+     
+		}
+	
+	},
+
+	methods:{
+  del(i){
+
+  	   this.list.splice(i,1)
+  },
+   search(keywords) {
+
+                    return this.list.filter(item => {
+
+                        if (item.editer.includes(keywords)) {
+                            return item
+                        }
+                    })
+
+
+                },
+                    rem(i){
+
+            // this.$store.commit("clo",i);
+           
+
+          
+         },
+
+
+	}
+
 }
 </script>
 
