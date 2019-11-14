@@ -3,9 +3,9 @@
 
 <mt-header fixed title="fixed top">
     <router-link to="/Index" slot="left" class='link'>
-    <mt-button icon="back" >back</mt-button>
+    <router-link to='./'><mt-button icon="back"> back</mt-button> </router-link>
   </router-link>
-  <mt-button icon="more" slot="right"><router-link to='/Home' class='link'>login</router-link></mt-button>
+
 
 </mt-header>
 
@@ -20,9 +20,9 @@
 	  <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item" to="/add">
         <span class="mui-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
+        <span class="mui-tab-label">多页面</span>
       </router-link>
-      <router-link class="mui-tab-item" to="/Index">
+ <!--      <router-link class="mui-tab-item" to="/Index">
         <span class="mui-icon mui-icon-contact"></span>
         <span class="mui-tab-label">会员</span>
       </router-link>
@@ -36,10 +36,10 @@
       <router-link class="mui-tab-item" to="/my">
         <span class="mui-icon mui-icon-search"></span>
         <span class="mui-tab-label">我的</span>
-      </router-link>
+      </router-link> -->
           <router-link class="mui-tab-item" to="/Home">
         <span class="mui-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
+        <span class="mui-tab-label">单页面</span>
       </router-link>
     </nav>
   </div>

@@ -2,37 +2,17 @@
 
       <div>
 			
-				<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						新消息通知
-					</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						隐私
-					</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						通用
-					</a>
-				</li>
-			</ul>
-			<ul class="mui-table-view" style="margin-top: 25px;">
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
-						关于mui
-					</a>
-				</li>
-			</ul>
-			<ul class="mui-table-view" style="margin-top: 25px;">
-				<li class="mui-table-view-cell">
-					<a style="text-align: center;color: #FF3B30;">
-						退出登录
-					</a>
-				</li>
-			</ul>
+<div class="mui-card" > 
+        <div class="mui-card-header"> <input type="text"  class='content' v-model='id'></div>
+        <div class="mui-card-content">
+          <div class="mui-card-content-inner">
+        <input type="text"  class='content' v-model='editer'>
+          </div>
+        </div>
+        <div class="mui-card-footer"><input type="text"  class='content' v-model='content'></div>
+         <div class="mui-card-footer"><router-link to='index'><mt-button type="primary" size="small" @click='queren()'>确认</mt-button></router-link></div>
+      </div>
+		
 			</div>
    
 </template>
@@ -41,6 +21,28 @@
 
 
 export default {
+
+ data(){
+ 	return{ 
+    id:this.$store.state.car[0].id,
+    editer:this.$store.state.car[0].editer,
+   content:this.$store.state.car[0].content
+
+}
+
+ 	},
+
+ 	methods:{
+queren(){
+  var qr={id:this.id,editer:this.editer,content:this.content};
+
+this.$store.commit("qrTo",qr);
+this.id=this.editer=this.content='';
+         
+console.log(qr)
+
+}
+ 	}
 }
 </script>
 

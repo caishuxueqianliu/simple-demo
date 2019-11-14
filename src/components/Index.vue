@@ -4,7 +4,8 @@
   	<div class="mui-card" > 
   <div class="mui-card-header"><input type="text" placeholder="search..." class='search' v-model='keywords'></div>
 </div>
-<div class="mui-card"  v-for='(item,i) in search(keywords)' :key='item.id'> 
+<div class="mui-card"   v-for='(item,i) in search(keywords)' :key='item.id'> 
+<!--    v-for='(item,i) in search(keywords)' -->
         <div class="mui-card-header">{{item.id}}</div>
         <div class="mui-card-content">
           <div class="mui-card-content-inner">
@@ -12,7 +13,7 @@
           </div>
         </div>
         <div class="mui-card-footer">{{item.editer}}</div>
-            <div class="mui-card-footer"><mt-button type="primary" size="small" @click='rem(i)'>查看</mt-button>
+            <div class="mui-card-footer"><router-link to='/list'><mt-button type="primary" size="small" @click='rem(i)'>查看</mt-button></router-link>
 <mt-button type="danger" size="small"  @click='del(i)'>删除</mt-button></div>
       </div>
 
@@ -21,14 +22,15 @@
 </template>
 
 <script>
-export default {
+export default { 
 	data(){
 	return{
-        list:this.$store.car,     
+        listx:this.$store.state.car,     
+        
         content:'',
         id:'',
         editer:'',
-        keywords:'',
+        keywords:''
       
      
 		}
@@ -37,14 +39,17 @@ export default {
 
 	methods:{
   del(i){
+          this.$store.commit("delTo",i);
 
-  	   this.list.splice(i,1)
+      console.log(i)
+
+  	   // this.listx.splice(i,1)
+
   },
    search(keywords) {
 
-                    return this.list.filter(item => {
-
-                        if (item.editer.includes(keywords)) {
+                      return this.listx.filter(item => {
+                        if (item.content.includes(keywords)) {
                             return item
                         }
                     })
@@ -53,7 +58,7 @@ export default {
                 },
                     rem(i){
 
-            // this.$store.commit("clo",i);
+             this.$store.commit("remTo",i);
            
 
           

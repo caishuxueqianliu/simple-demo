@@ -3,6 +3,7 @@ import App from './App.vue'
 
 import Vuex from 'vuex'
 Vue.use(Vuex)
+
 import Vueresource from 'vue-resource'
 Vue.use(Vueresource)
 
@@ -32,28 +33,50 @@ Vue.component(Button.name, Button);
 // import { Search } from 'mint-ui';
 // Vue.component(Search.name, Search);
 
-
-
- localStorage.setItem('car', JSON.stringify(state.car))
+ var car=JSON.parse(localStorage.getItem('car'||'[]'))
 
 var store=new Vuex.Store({
 state:{
-	car:car
+	car:car,
+	ca:'',
+	i:''
 },
 mutations:{
 
 
-addTo(state, listx) {
+addTo(state,sz) {
 
-    
-this.car=this.listx;
- localStorage.setItem('car', JSON.stringify(state.car))
+  // this.car=sz;
+      state.car.unshift(sz)
+       console.log(state.car)
+      localStorage.setItem('car', JSON.stringify(state.car))
    
 
-}
+},
+  delTo(state,i){
+    
+   state.car.splice(i,1)
+console.log(i)
+   localStorage.setItem('car', JSON.stringify(state.car))
+  },
+    remTo(state,i){
+    
+             state.ca=state.car[i]
+
+             state.i=i
+
+
+  },
+  qrTo(state,qr){
+                   state.car[state.i]=qr
+
+                      localStorage.setItem('car', JSON.stringify(state.car))
+
+  }
 
  },
- gettersL:{}
+
+ getters:{}
 
 
 })

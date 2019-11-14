@@ -77,6 +77,7 @@ export default {
   add(){
    var xx={id:this.id,editer:this.editer,content:this.content};
    this.list.unshift(xx);
+   console.log(this.list)
    this.id=this.editer=this.content='';        
   },
   del(i){
