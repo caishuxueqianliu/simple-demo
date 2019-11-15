@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="mui-card-footer"><input type="text"  class='content' v-model='content'></div>
-         <div class="mui-card-footer"><router-link to='index'><mt-button type="primary" size="small" @click='queren()'>确认</mt-button></router-link></div>
+         <div class="mui-card-footer"> <router-link to='/list'><mt-button type="danger" size="small" >取消</mt-button></router-link><router-link to='index'><mt-button type="primary" size="small" @click='queren()'>确认</mt-button></router-link></div>
       </div>
 		
 			</div>

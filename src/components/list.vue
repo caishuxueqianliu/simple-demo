@@ -8,7 +8,8 @@
           </div>
         </div>
         <div class="mui-card-footer">{{this.$store.state.car[0].editer}}</div>
-            <div class="mui-card-footer"><router-link to='/my'><mt-button type="primary" size="small" @click='xiugai()'>修改</mt-button></router-link></div>
+            <div class="mui-card-footer"><router-link to='/my'><mt-button type="primary" size="small" @click='xiugai()'>修改</mt-button></router-link>
+             <router-link to='/index'><mt-button type="primary" size="small" >List</mt-button></router-link></div>
       </div>
 
     </div> 
